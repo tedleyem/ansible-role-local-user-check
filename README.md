@@ -5,7 +5,7 @@ This playbook simply checks and prints local users on a remote host.
 
 Requirements
 ------------
-
+Ansible >= 2.12
 
 Role Variables
 --------------
@@ -13,14 +13,18 @@ Role Variables
 
 Dependencies
 ------------
-- Ansible 
+None
 
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - { role: tedleyem.local-user-check, x: 42 }
+---
+    - hosts: localhost
+      become: yes
+      gather_facts: false
+      tasks:
+        - import_tasks: "tasks/main.yml"
+
 
 License
 -------
@@ -31,3 +35,12 @@ Issues
 ------------------
 https://github.com/tedleyem/ansible-role-local-user-check/issues
 
+
+License
+------------------
+Apache License Version 2.0
+
+
+Author Information
+------------------
+https://github.com/tedleyem/
